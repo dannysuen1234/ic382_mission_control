@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>controller</name>
+  <version>1.1.4</version>
+  <description>Simulation specific launch and configuration files for the MiR100 robot.</description>
+
+  <maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
+  <author email="martin.guenther@dfki.de">Martin Günther</author>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/dfki-ric/mir_robot</url>
+  <url type="repository">https://github.com/dfki-ric/mir_robot</url>
+  <url type="bugtracker">https://github.com/dfki-ric/mir_robot/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roslaunch</build_depend>
+
+
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>rospy</depend>
+<depend>tf</depend>
+
+
+</package>
