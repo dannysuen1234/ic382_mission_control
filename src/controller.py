@@ -23,7 +23,7 @@ def newOdom(msg):
     (roll, pitch, theta) = euler_from_quaternion([rot_q.x, rot_q.y, rot_q.z, rot_q.w])
 
 def position(x1, y1, x2, y2):
-	return ((x1-x2)**2 +(y1-y2)**2)**0.5
+    return ((x1-x2)**2 +(y1-y2)**2)**0.5
 
 rospy.init_node("speed_controller")
 
@@ -48,27 +48,25 @@ while not rospy.is_shutdown():
     angle_to_goal = atan2(inc_y, inc_x)
     
     if position(goal.x, goal.y, x, y) <0.1:
-		print("arrived")
-		if goal_list:
-			curr_point = goal_list.pop(0)
-			goal.x = x + curr_point[0]
-			goal.y = y + curr_point[1]
-			
-		else:
-			break
+               print("arrived")
+               if goal_list:
+                    curr_point = goal_list.pop(0)
+                    goal.x = x + curr_point[0]
+                    goal.y = y + curr_point[1]
+
+               else:
+                    break
     elif min(abs(angle_to_goal-theta), 6.28-abs(angle_to_goal-theta))  > 0.1 :
 
-        	speed.linear.x = 0.0
-        	speed.angular.z = 0.2
-	
-	
+               speed.linear.x = 0.0
+               speed.angular.z = 0.2
+
+
     else:
 	
-	
-	        speed.linear.x = 0.5
-       		speed.angular.z = 0.0
+               speed.linear.x = 0.5
+               speed.angular.z = 0.0
 		
-
     pub.publish(speed)
 
     r.sleep()
